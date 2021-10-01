@@ -12,9 +12,14 @@ spec:
     spec:
       containers:
         - name: container-aplicacao-loja
-          image: rafanercessian/aplicacao-loja:v1
+          image: aluracliregistry.azurecr.io/loja/aplicacao-loja:v1
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: aluracliregistry.secret
+          # imagePullCredentials:
+          #   username: name
+          #   password: password
   selector:
     matchLabels:
       name: aplicacao-pod
